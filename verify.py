@@ -42,9 +42,13 @@ def verify_code(request):
 	# 将内存中的图片数据返回给客户端，MIME类型为图片png
 	return HttpResponse(buf.getvalue(), 'image/png')
 
-	# code存储在session中
+	# 简易用法说明	
+	"""
+		1、code存储在session中，key为'verifycode'
+		2、验证时只需去除session中的原验证码，再与新输入的对比即可
+	"""
 
 	"""
-		img验证码图片示例
+		img验证码图片html示例
 		<img src="/verify_code/" id="change" onclick="this.setAttribute('src','/verify_code/?verify_code='+Math.random())" style="border-radius: 4px;">
 	"""
